@@ -5,8 +5,15 @@ lines =[]
 for line in fileinput.input():
 	lines.append(line)
 
+if any("." in s for s in lines):
+	lines[0:]= [float(x) for x in sys.argv[0:]]
+else:
+	lines[0:]= [int(x) for x in sys.argv[0:]]
 
 
-a = sum([i for i in lines if isinstance(i,int) or isinstance(i,float)])
+suma = 0
 
-print a 
+for i in lines[0:]:
+	suma += i 
+
+print(suma)
